@@ -1,15 +1,12 @@
-TCO — THE CHOSEN ONE / R&B WEBSITE
+TCO — THE CHOSEN ONE / WEBSITE V3
 
-Updated V2: cinematic black/charcoal layout with the custom TCO wolf logo integrated into the navigation, hero, and footer.
+Updated hero slogan: COME AS YOU, LEAVE BETTER.
 
 Files:
 - index.html
 - styles.css
 - script.js
-- wolf-hero.jpg
 - tco-main-logo.png
+- wolf-hero.jpg
 
-Publishing:
-Use GitHub Pages. Replace the existing files in your tco-website repository with these files, then commit the changes. GitHub Pages will redeploy automatically.
-
-Streaming/social links are included in index.html.
+Deploy by replacing the files in the existing GitHub Pages repository.

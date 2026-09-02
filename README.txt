@@ -1,12 +1,14 @@
-TCO — THE CHOSEN ONE / WEBSITE V3
+TCO — THE CHOSEN ONE / R&B WEBSITE
 
-Updated hero slogan: COME AS YOU, LEAVE BETTER.
+V4 adds a real on-site Listening Room with five 30-second audio previews made from tracks supplied by TCO.
 
-Files:
-- index.html
-- styles.css
-- script.js
-- tco-main-logo.png
-- wolf-hero.jpg
+Tracks included:
+- Promised
+- I Want You, You Need Me
+- Do You Love Me
+- Can't Stop
+- Time Goes On
 
-Deploy by replacing the files in the existing GitHub Pages repository.
+Visitors can play/pause previews, scrub the preview timeline, and open the TCO Spotify artist page for the full catalog.
+
+Free publishing: use GitHub Pages. Upload all files/folders to the repository root and deploy from main / root.

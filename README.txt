@@ -1,14 +1,14 @@
-TCO — THE CHOSEN ONE / R&B WEBSITE
+TCO / THE CHOSEN ONE — OFFICIAL WEBSITE
 
-V4 adds a real on-site Listening Room with five 30-second audio previews made from tracks supplied by TCO.
+VERSION 6 — About Me upgrade
 
-Tracks included:
-- Promised
-- I Want You, You Need Me
-- Do You Love Me
-- Can't Stop
-- Time Goes On
+Includes:
+- Dark charcoal / black / icy-blue TCO visual system
+- TCO crowned wolf branding
+- TCO Listening Room with five 30-second MP3 previews
+- The Lone Wolf album section
+- New ABOUT ME navigation tab and full About section
+- Responsive mobile layout
 
-Visitors can play/pause previews, scrub the preview timeline, and open the TCO Spotify artist page for the full catalog.
-
-Free publishing: use GitHub Pages. Upload all files/folders to the repository root and deploy from main / root.
+UPLOAD NOTE:
+Keep the folder contents together when uploading to GitHub Pages. The previews folder contains the MP3 files used by the Music section.

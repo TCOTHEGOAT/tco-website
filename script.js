@@ -47,3 +47,12 @@ featuredPlay?.addEventListener('click',()=>{const card=current||cards[0];const a
 function join(e){e.preventDefault();document.querySelector('#message').textContent="YOU'RE IN. WELCOME TO THE MOVEMENT.";e.target.reset();}
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.style.opacity=1}),{threshold:.12});
 document.querySelectorAll('.music-room,.tiles,.wolf-section,.quote,.join').forEach(e=>{e.style.opacity=0;e.style.transition='opacity .8s ease';observer.observe(e)});
+
+
+function joinDen(e){e.preventDefault();const m=document.querySelector('#den-message');if(m)m.textContent="YOU'RE IN. WELCOME TO THE DEN.";e.target.reset();}
+
+// Active section indicator
+const sections=[...document.querySelectorAll('main section[id]')];
+const navLinks=[...document.querySelectorAll('.nav nav a')];
+const sectionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}})},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+sections.forEach(s=>sectionObserver.observe(s));

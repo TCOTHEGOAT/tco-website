@@ -1,14 +1,16 @@
-TCO / THE CHOSEN ONE — OFFICIAL WEBSITE
+TCO | THE CHOSEN ONE - WEBSITE V9
 
-VERSION 6 — About Me upgrade
+Files:
+- index.html
+- styles.css
+- script.js
+- tco-main-logo.png
+- tco-monogram.png
+- wolf-hero.jpg
+- previews/*.mp3
 
-Includes:
-- Dark charcoal / black / icy-blue TCO visual system
-- TCO crowned wolf branding
-- TCO Listening Room with five 30-second MP3 previews
-- The Lone Wolf album section
-- New ABOUT ME navigation tab and full About section
-- Responsive mobile layout
+V9 includes the TCO Listening Room, About Me story, music videos, The Lone Wolf, Words, Philosophy, Vault, and Enter The Den sections.
 
-UPLOAD NOTE:
-Keep the folder contents together when uploading to GitHub Pages. The previews folder contains the MP3 files used by the Music section.
+The Enter The Den form is currently a front-end experience only. Connect a form provider later if you want to collect emails.
+
+V10: cleaned the TCO monogram asset for dark backgrounds and corrected the Words anchor.

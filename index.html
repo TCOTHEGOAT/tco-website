@@ -13,6 +13,29 @@
 </head>
 <body>
 <div class="grain"></div>
+<canvas id="ambient-canvas" aria-hidden="true"></canvas>
+<div class="cursor-orb" id="cursor-orb" aria-hidden="true"></div>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"><span></span></div>
+<button class="ambient-toggle" id="ambient-toggle" type="button" aria-label="Toggle ambient mode"><span class="ambient-dot"></span> AMBIENT <b>ON</b></button>
+<div class="chapter-rail" id="chapter-rail" aria-label="TCO chapters">
+  <button class="chapter-dot active" data-target="home" aria-label="Home"><span>HOME</span></button>
+  <button class="chapter-dot" data-target="about" aria-label="About Me"><span>ABOUT</span></button>
+  <button class="chapter-dot" data-target="music" aria-label="Music"><span>MUSIC</span></button>
+  <button class="chapter-dot" data-target="wolf" aria-label="The Lone Wolf"><span>WOLF</span></button>
+  <button class="chapter-dot" data-target="visuals" aria-label="Visuals"><span>VISUALS</span></button>
+  <button class="chapter-dot" data-target="words" aria-label="Words"><span>WORDS</span></button>
+  <button class="chapter-dot" data-target="vault" aria-label="Vault"><span>VAULT</span></button>
+  <button class="chapter-dot" data-target="den" aria-label="The Den"><span>DEN</span></button>
+</div>
+<div class="site-intro" id="site-intro" aria-label="TCO introduction">
+  <div class="intro-inner">
+    <img src="tco-monogram-clean.png" alt="TCO" class="intro-logo">
+    <span class="intro-kicker">THE CHOSEN ONE</span>
+    <div class="intro-line"></div>
+    <h2>COME AS YOU.<br><i>LEAVE BETTER.</i></h2>
+    <button class="intro-enter" id="intro-enter">ENTER TCO</button>
+  </div>
+</div>
 
 <header class="nav">
   <a class="logo" href="#home" aria-label="TCO The Chosen One">
@@ -33,13 +56,22 @@
   <div class="pulse">⌁</div>
 </header>
 
+<div class="video-modal" id="video-modal" aria-hidden="true">
+  <div class="video-modal-backdrop" data-close-video></div>
+  <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Music video">
+    <button class="video-close" id="video-close" aria-label="Close video">×</button>
+    <div class="video-modal-frame"><iframe id="video-modal-iframe" src="" title="TCO music video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <div class="video-modal-meta"><span id="video-modal-label">OFFICIAL MUSIC VIDEO</span><h3 id="video-modal-title">TCO</h3></div>
+  </div>
+</div>
+
 <main id="home">
 <section class="hero">
   <div class="hero-intro" aria-hidden="true"><span>TCO</span><small>THE CHOSEN ONE</small></div>
-  <div class="hero-photo"></div>
+  <div class="hero-photo" data-depth="0.12"></div>
   <div class="hero-orbit"></div>
   <div class="hero-shade"></div>
-  <div class="hero-content">
+  <div class="hero-content" data-depth="0.06">
     <div class="eyebrow">TCO · THE CHOSEN ONE</div>
     <div class="hero-brand">TCO</div>
     <div class="hero-brand-sub">THE CHOSEN ONE</div>
@@ -56,12 +88,12 @@
       <a href="https://open.spotify.com/artist/3oNjPz1UAZDYRwijmzykFH?si=Cr33IiXGQ2uygGWKYffNmg" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/artist/tco/1551101424" target="_blank" rel="noopener">Apple</a><a href="https://youtube.com/channel/UCOA2fDSM-FO2vczo9tXtXJA?si=zYOoYaqRH5lggbuT" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/thewolfsdenwtco/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@theofficialtco?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a>
     </div>
   </div>
-  <div class="hero-logo-wrap"><img src="tco-main-logo.png" alt="TCO The Chosen One wolf emblem" class="hero-logo"></div>
+  <div class="hero-logo-wrap" data-depth="0.2"><img src="tco-main-logo.png" alt="TCO The Chosen One wolf emblem" class="hero-logo"></div>
   <div class="motto">COME AS YOU · LEAVE BETTER.</div>
   <div class="scroll">SCROLL TO DISCOVER <b>↓</b></div>
 </section>
 
-<section class="about-section" id="about">
+<section class="about-section immersive-section" id="about">
   <div class="about-glow"></div>
   <div class="about-header">
     <div class="label">✦ &nbsp; BEHIND THE NAME</div>
@@ -112,7 +144,7 @@
   </div>
 </section>
 
-<section class="music-room" id="music">
+<section class="music-room immersive-section" id="music">
   <div class="music-intro">
     <div>
       <div class="label">✦ &nbsp; THE TCO LISTENING ROOM</div>
@@ -197,7 +229,7 @@
   </div>
 </section>
 
-<section class="visuals-section" id="visuals">
+<section class="visuals-section immersive-section" id="visuals">
   <div class="visuals-intro">
     <div>
       <div class="label">✦ &nbsp; TCO VISUALS</div>
@@ -209,16 +241,20 @@
   <div class="video-grid">
     <article class="video-card">
       <div class="video-frame"><iframe src="https://www.youtube.com/embed/zHo2Qkc0MbU" title="TCO - Hit My Line music video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-      <div class="video-info"><span>01 / OFFICIAL MUSIC VIDEO</span><h3>HIT MY LINE</h3><p>When the phone is the only thing standing between you and the person you can't stop thinking about.</p><a href="https://youtu.be/zHo2Qkc0MbU" target="_blank" rel="noopener" class="video-link">WATCH ON YOUTUBE ↗</a></div>
+      <div class="video-info"><span>01 / OFFICIAL MUSIC VIDEO</span><h3>HIT MY LINE</h3><p>When the phone is the only thing standing between you and the person you can't stop thinking about.</p><button class="video-link video-open" data-video="zHo2Qkc0MbU" data-title="HIT MY LINE">WATCH VIDEO ↗</button></div>
     </article>
     <article class="video-card">
       <div class="video-frame"><iframe src="https://www.youtube.com/embed/fqqk1trUxIY" title="TCO - Focus music video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-      <div class="video-info"><span>02 / OFFICIAL MUSIC VIDEO</span><h3>FOCUS</h3><p>Cut through the noise. Lock in. A visual chapter from the TCO world.</p><a href="https://youtu.be/fqqk1trUxIY" target="_blank" rel="noopener" class="video-link">WATCH ON YOUTUBE ↗</a></div>
+      <div class="video-info"><span>02 / OFFICIAL MUSIC VIDEO</span><h3>FOCUS</h3><p>Cut through the noise. Lock in. A visual chapter from the TCO world.</p><button class="video-link video-open" data-video="fqqk1trUxIY" data-title="FOCUS">WATCH VIDEO ↗</button></div>
     </article>
   </div>
 </section>
 
-<section class="philosophy-section" id="philosophy">
+<section class="manifesto-strip" aria-label="TCO manifesto">
+  <div class="manifesto-word">LOVE</div><div class="manifesto-word">FEEL</div><div class="manifesto-word">HEAL</div><div class="manifesto-word">CREATE</div><div class="manifesto-word">KEEP GOING</div>
+</section>
+
+<section class="philosophy-section immersive-section" id="philosophy">
   <div class="philosophy-top">
     <div><div class="label">✦ &nbsp; THE TCO PHILOSOPHY</div><h2>LOVE HARD.<br><i>KEEP GOING.</i></h2></div>
     <p>Everything TCO stands for in one place. A reminder that feeling deeply is not a weakness, and surviving the dark does not mean becoming dark.</p>
@@ -241,7 +277,7 @@
   <a href="#philosophy"><div class="tile-icon">✦</div><h3>PHILOSOPHY</h3><p>The code.<br>The reason.</p><b>ENTER →</b></a>
   </section>
 
-<section class="wolf-section" id="wolf">
+<section class="wolf-section immersive-section" id="wolf">
   <div class="wolf-bg"></div>
   <div>
     <p class="eyebrow">THE LONE WOLF</p>
@@ -252,7 +288,7 @@
   <div class="big-wolf"><img src="tco-monogram-clean.png" alt="TCO crowned monogram"></div>
 </section>
 
-<section class="vault-section" id="vault">
+<section class="vault-section immersive-section" id="vault">
   <div class="vault-backdrop"></div>
   <div class="vault-heading"><div><div class="label">✦ &nbsp; CLASSIFIED / TCO</div><h2>THE<br><i>VAULT.</i></h2><p>Unreleased thoughts. Demos. Behind-the-scenes moments. Things that don't belong anywhere else.</p></div><span class="vault-code">ACCESS / 001</span></div>
   <div class="vault-grid">
@@ -263,7 +299,7 @@
   <div class="vault-footer"><span>THE VAULT OPENS AS THE STORY GROWS.</span><strong>TCO / 001</strong></div>
 </section>
 
-<section class="quote" id="words">
+<section class="quote immersive-section" id="words">
   <div class="label">✦ &nbsp; WORDS / THE NOTEBOOK</div>
   <div class="quote-mark">“</div>
   <blockquote>I LOVE HARD. I TRUST EASY. I GIVE TOO MUCH.<br>AND GET LEFT WITH LESSONS.</blockquote>
@@ -275,7 +311,7 @@
   </div>
 </section>
 
-<section class="join" id="connect">
+<section class="join immersive-section" id="connect">
   <div class="join-brand"><img src="tco-main-logo.png" alt="TCO The Chosen One" class="footer-logo"><span>TCO</span><small>THE CHOSEN ONE</small><p>COME AS YOU.<br>LEAVE BETTER.</p></div>
   <div class="join-logo"><img src="tco-main-logo.png" alt="TCO The Chosen One logo"></div>
   <div>
@@ -289,7 +325,7 @@
     <div class="links"><a href="https://www.instagram.com/thewolfsdenwtco/" target="_blank" rel="noopener">Instagram</a><a href="https://youtube.com/channel/UCOA2fDSM-FO2vczo9tXtXJA?si=zYOoYaqRH5lggbuT" target="_blank" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@theofficialtco?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a><a href="https://youtube.com/channel/UCOA2fDSM-FO2vczo9tXtXJA?si=zYOoYaqRH5lggbuT" target="_blank" rel="noopener">YouTube</a><a href="mailto:masonelijahking@gmail.com">Booking / Email</a></div>
   </div>
 </section>
-<section class="den-section" id="den">
+<section class="den-section immersive-section" id="den">
   <div class="den-inner">
     <div class="den-logo"><img src="tco-monogram-clean.png" alt="TCO crowned monogram"></div>
     <div><div class="label">✦ &nbsp; THE INNER CIRCLE</div><h2>ENTER<br><i>THE DEN.</i></h2><p>New music. New visuals. Real words. Get the pieces of TCO before they become the next chapter.</p><form class="den-form" onsubmit="joinDen(event)"><input type="email" placeholder="YOUR EMAIL ADDRESS" aria-label="Email address" required><button>ENTER THE DEN →</button></form><small id="den-message"></small></div>
@@ -298,6 +334,7 @@
 </main>
 
 <footer><span>© 2026 TCO / THE CHOSEN ONE. ALL RIGHTS RESERVED.</span><b>#TCO</b></footer>
+<button class="back-top" id="back-top" aria-label="Back to top">↑ <span>TOP</span></button>
 <script src="script.js"></script>
 </body>
 </html>

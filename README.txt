@@ -14,3 +14,5 @@ V9 includes the TCO Listening Room, About Me story, music videos, The Lone Wolf,
 The Enter The Den form is currently a front-end experience only. Connect a form provider later if you want to collect emails.
 
 V10: cleaned the TCO monogram asset for dark backgrounds and corrected the Words anchor.
+
+V12 adds immersive ambient particles, cursor lighting, scroll progress, chapter navigation, parallax, and reveal animations.
